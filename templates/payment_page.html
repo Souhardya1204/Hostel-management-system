@@ -1,0 +1,178 @@
+{% extends 'student.html' %}
+
+{% block style %}
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li>
+      <a href="/student_dashboard">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li>
+      <a href="/student_profile">
+        <i class="nc-icon nc-badge"></i>
+        <p>Student Profile</p>
+      </a>
+    </li>
+    <li>
+      <a href="/student_upload_image">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Upload Image</p>
+      </a>
+    </li>
+    <li class="active">
+      <a href="/student_fees_payment">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Fees Payment</p>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .razorpay-payment-button {
+
+    box-sizing: border-box;
+    margin: 0;
+    font-family: inherit;
+    font-size: large;
+    font-weight:500 ;
+    overflow: visible;
+    text-transform: none;
+    -webkit-appearance: button;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    border: 2px;
+    border-radius: 20%;
+
+    border:  solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: #fff;
+    background-color: #0c972d;
+    border-color: #0c972d;
+    display: block;
+    width: 100%;
+    margin-top: 1rem !important;
+    cursor: pointer;
+
+  }
+  #stat_btn{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: inherit;
+    font-size: large;
+    font-weight:500 ;
+    overflow: visible;
+    text-transform: none;
+    -webkit-appearance: button;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 5%;
+    border: 2px;
+
+    border:  solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: #fff;
+    background-color: #12429b;
+    border-color: #12429b;
+    display: block;
+    width: 100%;
+    align-items: center;
+    margin-top: 1rem !important;
+    cursor: pointer;
+    
+
+  }
+  
+
+</style>
+{% endblock %}
+
+
+
+
+
+
+
+{% block body %}
+
+<div class="content">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8 mx-auto" style="margin-top: 4%; ">
+      <div class="col-lg-6 mt-4" style="text-align: center; margin-left: 15%; ">
+        <h2>Pay your fees</h2>
+        <hr style="border: 1px solid #28a745; width: 70%;">
+        <h4>Total Hostel fees: ₹3000.00 </h4>
+        <br><br>
+
+        
+          <!-- <input class="form-control mt-2" placeholder="Email" name="email" type="email" required>
+          <input class="form-control mt-2" placeholder="Name" name="name" type="text" required>
+          <input class="form-control mt-2" placeholder="Contact number" name="mob" type="number" size="10" required>
+          <input class="form-control mt-2" placeholder="Enter Amount" name="amount" type="number" required> -->
+          <!--<button class="btn btn-success btn-block mt-3" id="rzp-button1">Pay Now with Razorpay</button>
+             <script src="https://checkout.razorpay.com/v1/checkout.js"> 
+            </script>-->
+
+
+          <!-- <form action="/payment_successful" method="POST" class="mt-5">
+            <script src="https://checkout.razorpay.com/v1/checkout.js" 
+              data-key="rzp_test_A4VvhETPM5RfxC"
+              data-amount="{{payment['amount']}}" 
+              data-currency="INR" 
+              data-order id="{{payment['order_id']}}"
+              data-buttontext="Pay with Razorpay" 
+              data-name= "{{user.s_name}}"
+              data-description="GCECT Hostel Fees"
+              data-image="https://img.collegedekhocdn.com/media/img/institute/crawled_images/None/DFGHTHTRTRH.jpg"
+              data-prefill.name={{user.s_name}}
+              data-prefill.email={{user.email}} 
+              data-prefill.contact={{user.contact}} 
+              data-theme.color="#00a3cc">
+            </script>
+            <input type="hidden" custom="Hidden Element" name="hidden">
+             <button class="btn btn-success btn-block mt-3">Pay Now with Razorpay</button> -->
+
+          <form action="/payment_successful/{{user.email}}" method="POST">
+            <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_A4VvhETPM5RfxC"
+              data-amount="{{payment['amount']}}" data-currency="INR" data-order_id="{{payment['order_id']}}"
+              data-buttontext="Pay with Razorpay" data-name="GCECT" data-description="GCECT Hostel Fees"
+              data-image="https://img.collegedekhocdn.com/media/img/institute/crawled_images/None/DFGHTHTRTRH.jpg"
+              data-prefill.name="{{user.s_name}}" data-prefill.contact="{{user.contact}}"
+              data-prefill.email="{{user.email}} " data-theme.color="#00a3cc"></script>
+            <input type="hidden" custom="Hidden Element" name="hidden">
+
+          
+
+          <a class="btn btn-success btn-block mt-5" href="/check_fees_stat/{{user.email}}" id="stat_btn">Check Fees payment status</a>
+        </form>
+
+        
+
+
+
+
+      </div>
+      <br>
+      <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+            </nav>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  {% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'admin.html' %}
+
+{% block style %}
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li>
+      <a href="/admin">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li class="active ">
+      <a href="/students">
+        <i class="nc-icon nc-badge"></i>
+        <p>Student Details</p>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+
+
+{% block body %}
+<br><br><br>
+<div style="padding: 4em;">
+  <form action="/search_student" method="POST">
+    <div class="row ">
+      <div class="form-group col-sm-6">
+      <label for="search_name">Enter Student Name</label>
+      <input type="text" name="search_name"  placeholder="Search">
+      <input type="submit" value="Search" class="btn btn-info btn-sm">
+      </div>
+    </div>
+    {%- for category, message in get_flashed_messages(with_categories = true) %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {%- endfor %}
+  </form>
+    <h2 style="font-weight:500">List of Students</h2>
+    <hr>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Year</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Room No.</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for student in students%}
+            <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.year}}</td>
+            <td>{{student.dept}}</td>
+            <td>{{student.room}}</td>
+            <td><a  href="/students/edit/{{student.roll}}" class="btn btn-primary btn-small">Edit <i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="/students/delete/{{student.roll}}" class="btn btn-danger btn-small">Delete <i class="fa fa-times" aria-hidden="true"></i></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}

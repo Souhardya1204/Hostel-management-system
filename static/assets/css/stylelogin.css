@@ -1,0 +1,70 @@
+#outercontainer{
+    align-items: center;
+    max-width: 50%;
+    max-height: 100%;
+    background-color: rgb(252, 240, 177);
+    border-style: solid;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    opacity: 96%;
+    border-radius: 4%;
+    border-width: 2px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Gentium Book Basic', serif;
+    font-size: 1rem;
+    font-weight:bolder;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: rgb(230, 196, 165);
+    background: url("https://img.collegedekhocdn.com/media/img/institute/crawled_images/None/DFGHTHTRTRH.jpg") fixed;
+    background-size: cover;
+    /*background-image: linear-gradient(to right, #006666 , #00e6e6);*/
+}
+::placeholder{
+    text-align: left;
+    
+}
+#chead{
+    background-color: rgb(252, 240, 177);
+}
+#inner{
+    border: 1px;
+    border-radius: 5%;
+}
+.card {
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+h2{
+    text-align: center;
+}
+.card-body{
+    background-color: rgb(253, 244, 200);
+}
+
+.error{
+    background-color:lightcoral;
+}
+
+.success{
+    background-color: lightgreen;
+}

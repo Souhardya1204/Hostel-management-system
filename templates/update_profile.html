@@ -1,0 +1,68 @@
+{% extends 'student.html' %}
+
+{% block style %}
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li>
+      <a href="/student_dashboard">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li class="active">
+      <a href="/student_profile">
+        <i class="nc-icon nc-badge"></i>
+        <p>Student Profile</p>
+      </a>
+    </li>
+    <li >
+      <a href="/student_upload_image">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Upload Image</p>
+      </a>
+    </li>
+    <li >
+        <a href="/student_fees_payment">
+          <i class="nc-icon nc-single-02"></i>
+          <p>Fees Payment</p>
+        </a>
+      </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <form action = '/student/update_profile' method='POST' style="padding-left: 4em;padding-right: 4em;padding-bottom: 4em;padding-top: 0em;">
+        <center><h4>Update Your Profile</h4></center>
+        <hr>
+        {%- for category, message in get_flashed_messages(with_categories = true) %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{message}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {%- endfor %}
+        <div class="form-group">
+        <label for="name">Name:</label>
+        <input class="form-control" type="text" name="name" id="name" value="{{student.s_name}}">
+        <br>
+        <label for="roll"> Roll No.:</label>
+        <input class="form-control" type="text" name="roll" id="roll"  value="{{student.roll}}" rows=4 >
+        <br>
+        <label for="year">Year:</label>
+        <input class="form-control" type="text" name="year" id="year" value="{{student.year}}">
+        <br>
+        <label for="dept">Department:</label>
+        <input class="form-control" type="text" name="dept" id="dept" value="{{student.dept}}">
+        <br>
+        <label for="dept">Contact No.:</label>
+        <input class="form-control" type="text" name="contact" id="contact" value="{{student.contact}}">
+        <br>
+        <input type="submit" value="Update Student Info" class="btn btn-primary">
+        </div>
+    </form>
+    <hr>
+    </div>
+{% endblock %}

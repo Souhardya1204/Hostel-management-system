@@ -1,0 +1,91 @@
+{% extends 'student.html' %}
+
+{% block style %}
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li>
+      <a href="/student_dashboard">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li class="active">
+      <a href="/student_profile">
+        <i class="nc-icon nc-badge"></i>
+        <p>Student Profile</p>
+      </a>
+    </li>
+    <li >
+      <a href="/student_upload_image">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Upload Image</p>
+      </a>
+    </li>
+    <li >
+        <a href="/student_fees_payment">
+          <i class="nc-icon nc-single-02"></i>
+          <p>Fees Payment</p>
+        </a>
+      </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+  {%- for category, message in get_flashed_messages(with_categories = true) %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {%- endfor %}
+  <div class="row">
+    <div class="col-lg-4 col-md-8 col-sm-8 mx-auto">
+      <div class="card card-stats" style="width:600px; height:350px;">
+        <div class="card-body " >
+          <div class="">
+            <div class="content-section">
+                  <div class="media">
+                    <img class="rounded-circle account-img" src="profile_pics/{{user.image_file}}" style="height: 40%; width:40% ; margin: 1rem;">
+                    <div class="media-body " >
+                      <h2 class="account-heading ml-5 mt-5 text-center" >Your Profile</h2>
+                      <!-- <p class="text-secondary">{{user.email}}</p> -->
+                    </div>
+                  </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body"
+    style="font-size:medium; font-weight: 400; max-width: 500px; text-align: left; align-items: left; margin-left: auto; margin-right: auto;">
+    <div class="align-left" style=" max-width: 450px;">
+      <p><b>Name :</b> {{user.s_name}}</p>
+      <p><b>Email :</b> {{user.email}}</p>
+      <p><b>Roll :</b> {{user.roll}}</p>
+      <p><b>Year :</b> {{user.year}}</p>
+      <p><b>Branch :</b> {{user.dept}}</p>
+      <p><b>Contact :</b> {{user.contact}}</p>
+      <!--p><b>Alloted Room No.: {{user.room}}</b></p-->
+      <p><b>Fees Status :</b> {{user.fees_status}}</p>
+      <a  href="/student/update_profile"class="btn btn-info btn-md "><span class="fa fa-edit"></span><b>Update Profile</b></a>
+    </div>
+
+  </div>
+</div>
+<br>
+<footer class="footer footer-black  footer-white ">
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="footer-nav">
+      </nav>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+{% endblock %}

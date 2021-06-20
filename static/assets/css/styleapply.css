@@ -1,0 +1,53 @@
+body {
+    background: url("https://img.collegedekhocdn.com/media/img/institute/crawled_images/None/DFGHTHTRTRH.jpg") fixed;
+    background-size: cover;
+}
+
+#innercontainer {
+    background-image: linear-gradient(rgb(255, 249, 239), rgb(252, 240, 177));
+    opacity: 95%;
+    border-radius: 4%;
+
+}
+
+#innerbox {
+    width: 100%;
+}
+
+#header {
+    align-items: center;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+#outercontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    max-height: 80%;
+    min-height: 60%;
+    opacity: 96%;
+    font-family: 'Gentium Book Basic', serif;
+    
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}

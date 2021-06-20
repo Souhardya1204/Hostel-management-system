@@ -1,0 +1,104 @@
+{% extends 'student.html' %}
+
+{% block style %}
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li>
+      <a href="/student_dashboard">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li>
+      <a href="/student_profile">
+        <i class="nc-icon nc-badge"></i>
+        <p>Student Profile</p>
+      </a>
+    </li>
+    <li class="active">
+      <a href="/student_upload_image">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Upload Image</p>
+      </a>
+    </li>
+    <li >
+        <a href="/student_fees_payment">
+          <i class="nc-icon nc-single-02"></i>
+          <p>Fees Payment</p>
+        </a>
+      </li>
+  </ul>
+</div>
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="content">
+  <!-- <div class="row">
+    <div class="col-lg-4 col-md-8 col-sm-8 mx-auto">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-success"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-title" style="text-align: center; margin-right: 15%;">Welcome {{user.s_name.split()[0]}}</p>
+                  <br><br><br>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row" style="margin-left: 42%; margin-right: auto;  margin-top: 15%;">
+    <!--<form action="/student_upload-image" method="POST" enctype="multipart/form-data">
+       <div class="form">
+        <label for="photoupload" style="font-size: medium; font-weight:550 ;">Upload your photo</label>
+        <input type="file" class="form-control-file" name="s_photo" >
+      </div> -->
+
+      
+    </form>
+    <form action="/student_upload_image" method='POST' enctype=multipart/form-data>
+      <input type=file name=file><br><br><br><br>
+      <input type=submit value=Upload class="btn btn-primary btn-lg" >
+    </form>
+  </div>
+
+  <!-- <div class="row">
+    <a href="#" class="btn btn-primary btn-lg" style="margin-left: 42%; margin-right: auto; margin-top: 5%;"> Upload
+      <i aria-hidden="true"></i></a>
+  </div> -->
+  <!-- {%- for category, message in get_flashed_messages(with_categories = true) %}
+  <div class="alert {{ category }} alert-dismissible fade show" style="color: black;" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+
+
+</div>
+{%- endfor %}
+</div>
+<br>
+<footer class="footer footer-black  footer-white ">
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="footer-nav">
+      </nav>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+
+{% endblock %}

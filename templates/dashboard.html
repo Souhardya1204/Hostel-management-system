@@ -1,0 +1,243 @@
+{% extends 'admin.html' %}
+
+{% block style %} 
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li class="active">
+      <a href="/admin">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li>
+      <a href="/students">
+        <i class="nc-icon nc-badge"></i>
+        <p>Student Details</p>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+  <div class="row">
+    <div class="col-lg-2 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          {%- for category, message in get_flashed_messages(with_categories = true) %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {%- endfor %}
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-success"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8 ">
+              <div class="numbers ">
+                <p class="card-category">Total Students</p>
+                <p class="card-title">{{students}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-success"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">1st Year</p>
+                <p class="card-title">{{students_1st}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-danger"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">2nd Year</p>
+                <p class="card-title">{{students_2nd}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-success"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">3rd</p>
+                <p class="card-title">{{students_3rd}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-success"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">4th Year</p>
+                <p class="card-title">{{students_4th}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-success"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Computer Science & Engg</p>
+                <p class="card-title">{{students_CSE}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-danger"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Information Technology</p>
+                <p class="card-title">{{students_IT}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-success"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Ceramic Technology</p>
+                <p class="card-title">{{students_CT}}
+                  <br><br>
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <br>
+  <a href="/show_applicants"class="btn btn-primary">Show All Applicants <i  aria-hidden="true"></i></a>
+  <a href="/students" class="btn btn-info">Search Student <i class="fa fa-search" aria-hidden="true"></i></a>
+  <br>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Total Student</th>
+        <th scope="col">1st Yr Student</th>
+        <th scope="col">2nd Yr Student</th>
+        <th scope="col">3rd Yr Student</th>
+        <th scope="col">4th Yr Student</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{students}}</th>
+        <td>{{students_1st}}</td>
+        <td>{{students_2nd}}</td>
+        <td>{{students_3rd}}</td>
+        <td>{{students_4th}}</td>
+      </tr>
+    </tbody>
+  </table>
+<footer class="footer footer-black  footer-white ">
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="footer-nav">
+      </nav>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+{% endblock %}
