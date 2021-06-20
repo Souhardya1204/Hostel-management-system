@@ -1,0 +1,2 @@
+This project is on "Hostel Management System".We have implemented this project using flask.Here we have provided some basic functions for "Admin" and "User".For "User" there are apply,login,check status, update profile, upload image functions.
+For "Admin" there are some functions like accept or reject application, allocate rooms, show student details, search student.More functions will be incorporated in future.
